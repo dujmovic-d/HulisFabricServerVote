@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblerandomizernuzlocke",
+  "version": "1",
+  "name": "CobbleRandomizerNuzlocke",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/hulig/CobbleRandomizerNuzlocke"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/cobblerandomizernuzlocke/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.huli.cobblerandomizernuzlocke.fabric.CobblemonFabric"
+    ]
+  },
+  "mixins": [
+    "cobblerandomizernuzlocke.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.20.1"
+  }
+}
