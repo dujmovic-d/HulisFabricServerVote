@@ -7,9 +7,11 @@ import com.cobblemon.mod.common.pokemon.Species
 object RandomizerUtil {
     fun getRandomPokemon(oldPokemon: Pokemon): Pokemon {
         val level: Int = oldPokemon.level
-        val evoStage: Int = getEvolutionStage(oldPokemon.species)
-        val species: Species = getRandomSpecies(oldPokemon, evoStage)
-        return species.create(level)
+        val isShiny:Boolean = oldPokemon.shiny
+        val species: Species = getRandomSpecies(oldPokemon)
+        val pokemon:Pokemon = PokemonSpecies.random().create(level)
+        pokemon.shiny = isShiny
+        return pokemon
     }
 
 
@@ -20,7 +22,8 @@ object RandomizerUtil {
         return 3
     }
 
-    private fun getRandomSpecies(oldPokemon: Pokemon, evoStage:Int): Species {
+    fun getRandomSpecies(oldPokemon: Pokemon): Species {
+        val evoStage:Int = getEvolutionStage(oldPokemon.species)
         lateinit var newSpecies:Species
         if(!oldPokemon.isLegendary() && !oldPokemon.isMythical() && !oldPokemon.isUltraBeast()){
             do {
@@ -30,6 +33,7 @@ object RandomizerUtil {
                 || newSpecies.labels.contains("mythical")
                 || newSpecies.labels.contains("ultra_beast")
                 || getEvolutionStage(newSpecies) != evoStage
+                || newSpecies.name == "missingno"
             )
         }
         else{
@@ -43,4 +47,12 @@ object RandomizerUtil {
         }
         return newSpecies
     }
+    fun getRandomPokemonChaos(oldPokemon: Pokemon): Pokemon {
+        val level: Int = oldPokemon.level
+        val isShiny:Boolean = oldPokemon.shiny
+        val pokemon:Pokemon = PokemonSpecies.random().create(level)
+        pokemon.shiny = isShiny
+        return pokemon
+    }
+
 }

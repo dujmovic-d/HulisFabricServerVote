@@ -17,6 +17,8 @@ class CobbleRandomizerAdapter : TypeAdapter<CobbleRandomizerConfig>() {
             dataManager?.let { p0.value(it.randomizerOn) }
             p0.name("NuzlockeEnabled")
             dataManager?.let { p0.value(it.nuzlockeOn) }
+            p0.name("RandomizerChaosEnabled")
+            dataManager?.let { p0.value(it.nuzlockeOn) }
             p0.endObject()
         }
     }
@@ -31,6 +33,7 @@ class CobbleRandomizerAdapter : TypeAdapter<CobbleRandomizerConfig>() {
 
                 when(fieldName){
                     "RandomizerEnabled"->dataManager.randomizerOn = p0.nextBoolean()
+                    "RandomizerChaosEnabled"->dataManager.randomizerOn = p0.nextBoolean()
                     "NuzlockeEnabled"->dataManager.nuzlockeOn = p0.nextBoolean()
                     else->{}
                 }
