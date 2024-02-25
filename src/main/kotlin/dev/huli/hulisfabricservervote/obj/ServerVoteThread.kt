@@ -154,6 +154,7 @@ object ServerVoteThread {
                 Thread.sleep(1000)
             }
 
+            reset()
             isRunning = false
             HulisFabricServerVote.INSTANCE.SERVER.playerManager.playerList.forEach{it.sendMessage(TextUtil.getVoteTimeoutText(),true)}
         }
