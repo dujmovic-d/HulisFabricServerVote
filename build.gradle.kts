@@ -25,7 +25,7 @@ loom {
 repositories {
     mavenCentral()
     maven("https://maven.impactdev.net/repository/development/")
-    maven("https://maven.nucleoid.xyz")
+    maven("https://maven.nucleoid.xyz"){name = "Nucleoid"}
 }
 dependencies {
     minecraft("com.mojang:minecraft:1.20.1")
@@ -34,6 +34,8 @@ dependencies {
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.88.1+1.20.1")
     modImplementation("com.cobblemon:fabric:1.4.0+1.20.1")
+
+    modImplementation(include("eu.pb4","placeholder-api","2.1.3+1.20.1"))
 
 
     //shadowCommon group: 'commons-io', name: 'commons-io', version: '2.6'

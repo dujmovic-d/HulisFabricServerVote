@@ -1,9 +1,9 @@
-package dev.huli.cobblerandomizernuzlocke.util
+package dev.huli.hulisfabricservervote.util
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import dev.huli.cobblerandomizernuzlocke.adapters.CobbleRandomizerAdapter
-import dev.huli.cobblerandomizernuzlocke.config.CobbleRandomizerConfig
+import dev.huli.hulisfabricservervote.adapters.HulisFabricServerVoteAdapter
+import dev.huli.hulisfabricservervote.config.HulisFabricServerVoteConfig
 import java.lang.reflect.Modifier
 
 object Adapters {
@@ -11,6 +11,6 @@ object Adapters {
         .setPrettyPrinting()
         .disableHtmlEscaping()
         .excludeFieldsWithModifiers(Modifier.TRANSIENT)
-        .registerTypeAdapter(CobbleRandomizerConfig().javaClass,CobbleRandomizerAdapter())
+        .registerTypeAdapter(HulisFabricServerVoteConfig().javaClass,HulisFabricServerVoteAdapter())
         .create()
 }

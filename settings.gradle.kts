@@ -1,4 +1,4 @@
-rootProject.name = "CobbleRandomizerNuzlocke"
+rootProject.name = "HulisFabricServerVote"
 
 pluginManagement {
     repositories {

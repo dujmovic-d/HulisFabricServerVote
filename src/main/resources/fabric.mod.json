@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "id": "cobblerandomizernuzlocke",
+  "id": "hulisfabricservervote",
   "version": "1",
-  "name": "CobbleRandomizerNuzlocke",
+  "name": "HulisFabricServerVote",
   "description": "",
   "authors": [],
   "contact": {
-    "repo": "https://github.com/hulig/CobbleRandomizerNuzlocke"
+    "repo": "https://github.com/hulig/HulisFabricServerVote"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/cobblerandomizernuzlocke/icon.png",
+  "icon": "assets/hulisfabricservervote/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.huli.cobblerandomizernuzlocke.fabric.CobblemonFabric"
+      "dev.huli.hulisfabricservervote.fabric.CobblemonFabric"
     ]
   },
   "mixins": [
-    "cobblerandomizernuzlocke.mixins.json"
+    "hulisfabricservervote.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

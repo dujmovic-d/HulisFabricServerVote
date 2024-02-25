@@ -1,26 +1,25 @@
-package dev.huli.cobblerandomizernuzlocke.config
+package dev.huli.hulisfabricservervote.config
 
-import com.google.gson.Gson
 import com.google.gson.stream.JsonReader
-import dev.huli.cobblerandomizernuzlocke.CobbleRandomizerNuzlocke
-import dev.huli.cobblerandomizernuzlocke.managers.CobbleRandomizerDataManager
-import dev.huli.cobblerandomizernuzlocke.util.Adapters
+import dev.huli.hulisfabricservervote.HulisFabricServerVote
+import dev.huli.hulisfabricservervote.managers.HulisFabricServerVoteDataManager
+import dev.huli.hulisfabricservervote.util.Adapters
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileReader
 import java.io.FileWriter
 import java.io.IOException
 
-class CobbleRandomizerConfig {
-    var randomizerDataManager: CobbleRandomizerDataManager = CobbleRandomizerDataManager()
+class HulisFabricServerVoteConfig {
+    var hulisFabricServerVoteDataManager: HulisFabricServerVoteDataManager = HulisFabricServerVoteDataManager()
 
     fun writeConfig(){
-        val dir:File = CobbleRandomizerNuzlocke.configDir
+        val dir:File = HulisFabricServerVote.configDir
         dir.mkdirs()
         val gson = Adapters.PRETTY_MAIN_GSON
-        val config = CobbleRandomizerConfig()
+        val config = HulisFabricServerVoteConfig()
         try {
-            val file = File(dir,"randomizernuzlocke.json")
+            val file = File(dir,"hfsvconfig.json")
             if (file.exists() && file.length()>0) return
             file.createNewFile()
             val writer = FileWriter(file)
@@ -33,11 +32,11 @@ class CobbleRandomizerConfig {
         }
     }
 
-    fun getConfig(): CobbleRandomizerConfig? {
-        val dir:File = CobbleRandomizerNuzlocke.configDir
+    fun getConfig(): HulisFabricServerVoteConfig? {
+        val dir:File = HulisFabricServerVote.configDir
         dir.mkdirs()
         val gson = Adapters.PRETTY_MAIN_GSON
-        val file = File(dir,"randomizernuzlocke.json")
+        val file = File(dir,"hfsvconfig.json")
         lateinit var reader:JsonReader
         try {
             reader = JsonReader(FileReader(file))
@@ -47,16 +46,16 @@ class CobbleRandomizerConfig {
             return null
         }
 
-        return gson.fromJson(reader,CobbleRandomizerConfig().javaClass)
+        return gson.fromJson(reader,HulisFabricServerVoteConfig().javaClass)
     }
 
     fun updateConfig(){
-        val config : CobbleRandomizerConfig = this
-        val dir:File = CobbleRandomizerNuzlocke.configDir
+        val config : HulisFabricServerVoteConfig = this
+        val dir:File = HulisFabricServerVote.configDir
         dir.mkdirs()
         val gson = Adapters.PRETTY_MAIN_GSON
         try {
-            val file = File(dir,"randomizernuzlocke.json")
+            val file = File(dir,"hfsvconfig.json")
             file.createNewFile()
             val writer = FileWriter(file)
             val json:String = gson.toJson(config)
