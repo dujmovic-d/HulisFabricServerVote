@@ -7,6 +7,7 @@ import dev.huli.hulisfabricservervote.enums.WeatherVoteGoals
 import dev.huli.hulisfabricservervote.util.TextUtil
 import net.minecraft.text.Text
 import java.util.UUID
+import java.util.concurrent.ConcurrentLinkedQueue
 
 object ServerVoteThread {
     private var thread: Thread? = null // The thread that will run the vote
@@ -16,7 +17,7 @@ object ServerVoteThread {
     @Volatile private var voteNo: Int = 0 // How many players have voted no
 
     private var voteTimeout: Int = HulisFabricServerVote.config.hulisFabricServerVoteDataManager.voteTimeInSeconds // How long the vote will last in seconds
-    var playersVotedUUIDs: MutableList<UUID> = mutableListOf() // List of players who have voted
+    var playersVotedUUIDs: ConcurrentLinkedQueue<UUID> = ConcurrentLinkedQueue() // List of players who have voted
 
     lateinit var voteType : VoteTypes // Is it a skip vote, weather vote, or time vote?
     lateinit var skipVoteGoal : SkipVoteGoals // What is the goal of the skip vote? (night, day, weather)
