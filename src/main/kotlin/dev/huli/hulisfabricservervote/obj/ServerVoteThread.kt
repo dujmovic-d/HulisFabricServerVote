@@ -9,10 +9,12 @@ import net.minecraft.text.Text
 import java.util.UUID
 
 object ServerVoteThread {
-    var isRunning: Boolean = false // Is the vote currently running?
     private var thread: Thread? = null // The thread that will run the vote
-    private var voteYes: Int = 0 // How many players have voted yes
-    private var voteNo: Int = 0 // How many players have voted no
+
+    @Volatile var isRunning: Boolean = false // Is the vote currently running?
+    @Volatile private var voteYes: Int = 0 // How many players have voted yes
+    @Volatile private var voteNo: Int = 0 // How many players have voted no
+
     private var voteTimeout: Int = HulisFabricServerVote.config.hulisFabricServerVoteDataManager.voteTimeInSeconds // How long the vote will last in seconds
     var playersVotedUUIDs: MutableList<UUID> = mutableListOf() // List of players who have voted
 
