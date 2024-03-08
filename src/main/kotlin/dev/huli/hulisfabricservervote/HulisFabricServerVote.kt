@@ -18,7 +18,7 @@ object HulisFabricServerVote {
     lateinit var SERVER : MinecraftServer
     val INSTANCE: HulisFabricServerVote = this
     lateinit var serverVoteThread: ServerVoteThread
-    var lastVoted = 0L
+    @Volatile var lastVoted = 0L
 
     lateinit var configDir:File
     lateinit var config:HulisFabricServerVoteConfig
