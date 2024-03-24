@@ -30,10 +30,10 @@ repositories {
 dependencies {
     minecraft("com.mojang:minecraft:1.20.1")
     mappings("net.fabricmc:yarn:1.20.1+build.10")
-    modImplementation("net.fabricmc:fabric-loader:0.14.22")
+    modImplementation("net.fabricmc:fabric-loader:0.14.24")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.88.1+1.20.1")
-    modImplementation("com.cobblemon:fabric:1.4.0+1.20.1")
+    //modImplementation("com.cobblemon:fabric:1.4.0+1.20.1")
 
     modImplementation(include("eu.pb4","placeholder-api","2.1.3+1.20.1"))
 
